@@ -1,0 +1,19 @@
+.calc__operators {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 8px;
+    
+    
+}
+
+
+.calc__operators_width {
+    flex: 1 1 52px;
+    height: 48px;
+    border: 1px solid #E2E3E5;
+    border-radius: 6px;
+}
+.calc__operators_width:hover {
+    border: none;
+}
