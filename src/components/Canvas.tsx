@@ -7,7 +7,7 @@ import { Dispatch, SetStateAction } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store/store';
 import SwitchComponent from './SwitchComponent'
-import { setComponentList } from '../store/ComponentsStore'
+import { deleteComponentList, setComponentList } from '../store/componentsStore'
 
 
 interface CanvasProps {
@@ -25,12 +25,13 @@ const Canvas:React.FC<CanvasProps> = ({ mylist, setList}) => {
   ])
   const currentItem = useSelector((state:RootState) => state.currentItem);
   const componets = useSelector((state:RootState) => state.componentList);
+  const sortedComponents = [...componets];
+  //sortedComponents.sort((a, b) => a.order - b.order);
   const dispatch = useDispatch();
   
   function dragOverHandler(e: React.DragEvent<HTMLDivElement>) {
     e.preventDefault();
-    console.log('curent')
-    console.log(currentItem)
+    
   }
 
 
@@ -72,20 +73,19 @@ function dropHandler(e: React.DragEvent<HTMLDivElement>) {
   function clickHandle(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
         
     const el = (e.target as HTMLDivElement);
+    console.log(el);
+    console.log(typeof el.id);    
     if (e.detail === 2 && el.className.includes('board__item')) {
-        
-     
-      setList(prev => prev.filter(item => {
-            
-            return item.id !== Number(el.id)
-        }))
+      
+      dispatch(deleteComponentList(parseInt(el.id)))
+      
     } 
         
     
   }
-  
+  const class1 = componets?.length ? '' : 'canvas__empty';
   return (
-    <div key='2' className='canvas canvas__empty'
+    <div key='2' className={'canvas ' + class1}
     onDragOver = {(e) => dragOverHandler(e)}
     onDragEnter = {(e) => dragEnterHandler(e)}
     onDragLeave = {(e) => dragLeaveHandler(e)}
@@ -93,10 +93,10 @@ function dropHandler(e: React.DragEvent<HTMLDivElement>) {
     onClick = {(e) => clickHandle(e)}
     >
        
-      {componets?.length ? (componets?.map(item => {
+      {sortedComponents?.length ? (sortedComponents?.map(item => {
         return (
           
-            <BoardItem  key={item.id} setList={setItemList} item={item} >
+            <BoardItem className={'board__item_placed'} key={item.id} setList={setItemList} item={item} >
                    {SwitchComponent(item.component)}
             </BoardItem>
             

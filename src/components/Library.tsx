@@ -24,7 +24,7 @@ const Library:React.FC<LibraryProps> = ({setList}) => {
     <div className='board' key='231311'>
       {renderData.map(item => {
         return (
-            <BoardItem key={item.id} setList={setList} item={item} >
+            <BoardItem className='board__item_initial' key={item.id} setList={setList} item={item} >
                  {SwitchComponent(item.component)}
             </BoardItem>
             )
