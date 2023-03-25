@@ -54,7 +54,7 @@ const BoardItem: React.FC<BoardItemProps> = ({item, setList, children, className
         el.style.borderBottom = 'none';
         console.log('drop')
         console.log(el.className)
-        if (el.className.includes('board__item_placed')) {
+        if (el.className.includes('board__item_placed') && item.id !== currentItem.id) {
             dispatch(sortComponentList({item, currentItem}));
         }
 

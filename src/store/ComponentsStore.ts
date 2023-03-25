@@ -7,9 +7,13 @@ export const componentsStore = createSlice ({
     initialState,
     reducers: {
         setComponentList : (state, action) => {
-         if (state.find( item => item.id === action.payload.id)) {
+        if (state.find( item => item.id === action.payload.id)) {
             return state;
-         }
+        }
+        if (action.payload.id === 1) {
+            return [action.payload, ...state];
+        }
+         
          return [...state, action.payload];
         },
         deleteComponentList : (state, action) => {
@@ -21,22 +25,17 @@ export const componentsStore = createSlice ({
 
             const startIndex = state.findIndex(elem => elem.id === item.id);
             const endIndex = state.findIndex(elem => elem.id === currentItem.id);
+            if (item.id === 1 || currentItem.id === 1) {
+                return state
+            }
+            
             if (startIndex !== endIndex) {
                 state.splice(endIndex, 1);
                 console.log(startIndex)
                 state.splice(startIndex, 0, currentItem);
             }
             return state;
-        //    return state.map(elem => {
         
-        //         if (elem.id === item.id ) {
-        //             return {...elem, order: currentItem.order}
-        //         }
-        //         if (elem.id === currentItem.id) {
-        //             return {...elem, order: item.order}
-        //         }
-        //         return elem
-        //     })
         }
     }
 
