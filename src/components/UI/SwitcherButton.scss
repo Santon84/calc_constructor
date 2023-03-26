@@ -1,0 +1,14 @@
+.switcher-button {
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    padding: 8px 12px;
+    height: 36px;
+    width: 100%;
+}
+
+.switcher-button_active {
+    background: #FFFFFF;
+    border: 1px solid #E2E3E5;
+    border-radius: 5px;
+}

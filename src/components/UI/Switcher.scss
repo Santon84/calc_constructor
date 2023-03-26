@@ -1,0 +1,17 @@
+.switcher-conteiner {
+    
+    height: 38px;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.switcher {
+    padding: 1px;
+    background-color: #F3F4F6;
+    border-radius: 6px;
+    height: 100%;
+    width: 243px;
+    display: flex;
+    justify-content: stretch;
+    margin-right: 10px;
+}

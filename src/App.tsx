@@ -4,6 +4,7 @@ import './App.scss';
 import Library from './components/Library';
 import Canvas from './components/Canvas';
 import { LibraryItem, LibraryComponents } from './types/types';
+import Switcher from './components/UI/Switcher';
 
 
 function App() {
@@ -30,16 +31,16 @@ function App() {
   console.log('list1');
   console.log(list1);
   return (
-    <div className="conteiner">
-     {/* <Board key='1' id='1'  items={itemsList} setList={setItemsList}/>
-     <Board key='2' id='2'  items={endList} setList={setEndList}/> */}
-      {/* <button type='button' onClick={clickHandle}>Add</button>
-      <button type='button' onClick={clickShowHandle}>Show</button>
-      <button type='button' onClick={clickDeleteHandle}>Delete </button> */}
-
-      {/* <CalcButton value='HELLO' component={<BoardItem setList={setEndList} key={1} item={itemsList[0]}/>}></CalcButton> */}
-      <Library key='1' setList={setList}/>
-      <Canvas  key='2' mylist={list1} setList={setList}/>
+    <div className='conteiner'>
+      <div className='inner-conteiner'>
+      
+        <Switcher/>
+    
+        <div className="calc-conteiner">
+          <Library key='1' setList={setList}/>
+          <Canvas  key='2' mylist={list1} setList={setList}/>
+        </div>
+        </div>
     </div>
   );
 }

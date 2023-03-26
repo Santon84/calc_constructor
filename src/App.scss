@@ -4,10 +4,25 @@
     margin: 0;
     box-sizing: border-box;
 }
+.calc-conteiner {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start ;
+    
+    gap: 56px;
+    min-height: 100vh;
+}
 .conteiner {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 56px;
-    min-height: 100vh;
+    padding: 20px;
+}
+.inner-conteiner {
+width: 580px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+gap:30px;
 }
