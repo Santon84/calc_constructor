@@ -4,7 +4,8 @@ import './Library.scss'
 import SwitchComponent from './SwitchComponent'
 import { Dispatch, SetStateAction } from "react";
 import { LibraryComponents, LibraryItem } from '../types/types'
-
+import { RootState } from '../store/store';
+import { useSelector } from 'react-redux';
 
 const renderData = [
     {id: 1,  component: LibraryComponents.Display, order: 1},
@@ -19,10 +20,11 @@ interface LibraryProps {
 
 
 const Library:React.FC<LibraryProps> = ({setList}) => {
-  
+  const  active  = useSelector((state:RootState) => state.runtimeSwitch);
   return (
     <div className='board' key='231311'>
-      {renderData.map(item => {
+      {active ?  null :
+      renderData.map(item => {
         return (
             <BoardItem className='board__item_initial' key={item.id} setList={setList} item={item} >
                  {SwitchComponent(item.component)}

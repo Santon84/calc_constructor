@@ -3,13 +3,15 @@ import ItemStore from "./ItemStore";
 
 import currentNumStore from "./currentNumStore";
 import componentsStore from "./componentsStore";
+import runtimeStore from "./runtimeStore";
 
 
 const store = configureStore({
     reducer: {
         currentItem: ItemStore,
         currentNumber: currentNumStore,
-        componentList: componentsStore
+        componentList: componentsStore,
+        runtimeSwitch: runtimeStore
     }
 })
 

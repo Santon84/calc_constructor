@@ -1,11 +1,17 @@
 import React from 'react'
 import './Switcher.scss'
 import SwitcherButton from './SwitcherButton'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../../store/store'
+import { setRuntime } from '../../store/runtimeStore'
 const Switcher = () => {
-const [active, setActive] = React.useState(false);
+    const  active  = useSelector((state:RootState) => state.runtimeSwitch);
+    const dispatch = useDispatch();
+//const [active, setActive] = React.useState(false);
 function handleClick() {
     console.log('clicked');
-    setActive(!active);
+    dispatch(setRuntime())
+    
 }
   return (
     <div className='switcher-conteiner'>
