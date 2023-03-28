@@ -73,8 +73,8 @@ function dropHandler(e: React.DragEvent<HTMLDivElement>) {
   function clickHandle(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
         
     const el = (e.target as HTMLDivElement);
-    console.log(el);
-    console.log(typeof el.id);    
+    console.log('canvas click');
+      
     if (e.detail === 2 && el.className.includes('board__item')) {
       
       dispatch(deleteComponentList(parseInt(el.id)))

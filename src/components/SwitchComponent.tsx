@@ -26,9 +26,9 @@ const SwitchComponent = (component:LibraryComponents | null) => {
         }
     }
     return (
-        <div>
+        <>
              {renderComponent(component?.toString())}
-        </div>
+        </>
     )
     
 }
