@@ -12,6 +12,7 @@ const renderData = [
     {id: 2,  component: LibraryComponents.Operators, order: 2},
     {id: 3,  component: LibraryComponents.Numbers, order: 3},
     {id: 4,  component: LibraryComponents.EqualButton, order: 4},
+    {id: 5,  component: LibraryComponents.ClearButton, order: 5},
 ]
 
 interface LibraryProps {
@@ -26,7 +27,7 @@ const Library:React.FC<LibraryProps> = ({setList}) => {
       {active ?  null :
       renderData.map(item => {
         return (
-            <BoardItem className='board__item_initial' key={item.id} setList={setList} item={item} >
+            <BoardItem className='board__item_initial' key={item.id} item={item} >
                  {SwitchComponent(item.component)}
             </BoardItem>
             )

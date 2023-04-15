@@ -9,4 +9,5 @@ export enum LibraryComponents  {
     Operators = 'Operators',
     Numbers = 'Numbers',
     EqualButton = 'EqualButton',
+    ClearButton = 'ClearButton',
 }

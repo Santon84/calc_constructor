@@ -6,6 +6,7 @@ import Operators from './calcElements/Operators'
 import Numbers from './calcElements/Numbers';
 import Display from './calcElements/Display';
 import EqualButton from './calcElements/EqualButton';
+import ClearButton from './calcElements/ClearButton';
 import { LibraryComponents } from '../types/types';
 
 
@@ -23,6 +24,7 @@ const SwitchComponent = (component:LibraryComponents | null) => {
             case 'Numbers': return <Numbers />;
             case 'Display': return <Display />;
             case 'EqualButton': return <EqualButton />;
+            case 'ClearButton': return <ClearButton />;
         }
     }
     return (

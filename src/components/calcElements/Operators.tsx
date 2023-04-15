@@ -1,12 +1,14 @@
 import React from 'react'
 import CalcButton from '../UI/CalcButton'
 import './Operators.scss'
+import { ComputeButton } from '../../logic/ComputeButton';
 const operators = ['*','/','+','-']
-const clickHandle = () => {
+     
+const clickHandle = (e : React.MouseEvent<Element, MouseEvent>) => {
     // return (event: React.MouseEvent) => {
        
      // }
-     console.log('hello');
+     ComputeButton(e);
 }
 const Operators = () => {
   return (

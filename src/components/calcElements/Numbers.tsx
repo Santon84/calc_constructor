@@ -3,17 +3,18 @@ import CalcButton from '../UI/CalcButton'
 import { useDispatch } from 'react-redux';
 import { addNum } from '../../store/currentNumStore';
 import './Numbers.scss';
+import { ComputeButton } from '../../logic/ComputeButton';
 const numbers = ['7','8','9','4','5','6','1','2','3','0','.'];
 
 
 const Numbers = () => {
   const dispatch = useDispatch();
 
-  const clickHandle = (number: string) => {
+  const clickHandle = (e: React.MouseEvent<Element, MouseEvent>) => {
     // return (event: React.MouseEvent) => {
-     dispatch(addNum(number));  
+     //dispatch(addNum(number));  
      // }
-     console.log(number);
+     ComputeButton(e);
   }
   return (
     <div className='calc__numbers'>

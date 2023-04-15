@@ -6,14 +6,14 @@ import { RootState } from '../../store/store'
 
 interface ICalcButtonProps {
     value: string;
-    clickHandler: (value: string) => void;
+    clickHandler: (e: React.MouseEvent<Element, MouseEvent>) => void;
     addClass?: string;
 }
 const CalcButton:FC<ICalcButtonProps> = ({value, clickHandler, addClass}) => {
   const  active  = useSelector((state:RootState) => state.runtimeSwitch);
   return (
     <div key={value} className={`calc__button ${addClass}`} style={{pointerEvents: active ? 'auto' :'none'}}>
-      <button type='button' className={addClass} onClick={() => clickHandler(value)}>{value}</button>
+      <button type='button' className={addClass} onClick={(e) => clickHandler(e)}>{value}</button>
     </div>
   )
 }

@@ -11,12 +11,11 @@ import { sortComponentList } from '../store/componentsStore';
 interface BoardItemProps {
     item : LibraryItem;
     children?: React.ReactElement;
-    setList: React.Dispatch<SetStateAction<LibraryItem[]>>,
     className?: string;
 } 
 
 
-const BoardItem: React.FC<BoardItemProps> = ({item, setList, children, className}) => {
+const BoardItem: React.FC<BoardItemProps> = ({item, children, className}) => {
     const currentItem = useSelector((state:RootState) => state.currentItem);
     const active  = useSelector((state:RootState) => state.runtimeSwitch);
     const dispatch = useDispatch();

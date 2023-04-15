@@ -17,12 +17,7 @@ interface CanvasProps {
 
 const Canvas:React.FC<CanvasProps> = ({ mylist, setList}) => {
   // const { mylist as list1, setList } = mylist;
-    const [itemList,  setItemList] = useState<LibraryItem[]>([
-      {id: 1,  component: LibraryComponents.Display, order: 1},
-      {id: 2,  component: LibraryComponents.Operators, order: 2},
-      {id: 3,  component: LibraryComponents.Numbers, order: 3},
-      {id: 4,  component: LibraryComponents.EqualButton, order: 4},
-  ])
+ 
   const currentItem = useSelector((state:RootState) => state.currentItem);
   const componets = useSelector((state:RootState) => state.componentList);
   const sortedComponents = [...componets];
@@ -73,7 +68,7 @@ function dropHandler(e: React.DragEvent<HTMLDivElement>) {
   function clickHandle(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
         
     const el = (e.target as HTMLDivElement);
-    console.log('canvas click');
+    //console.log(el);
       
     if (e.detail === 2 && el.className.includes('board__item')) {
       
@@ -96,7 +91,7 @@ function dropHandler(e: React.DragEvent<HTMLDivElement>) {
       {sortedComponents?.length ? (sortedComponents?.map(item => {
         return (
           
-            <BoardItem className={'board__item_placed'} key={item.id} setList={setItemList} item={item} >
+            <BoardItem className={'board__item_placed'} key={item.id} item={item} >
                    {SwitchComponent(item.component)}
             </BoardItem>
             
