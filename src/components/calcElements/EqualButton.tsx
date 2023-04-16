@@ -8,7 +8,7 @@ import { ComputeButton } from '../../logic/ComputeButton';
 
 const EqualButton = () => {
 
-  const clickHandle = (e: React.MouseEvent<Element, MouseEvent>) => {
+  const clickHandle = (e: any) => {
     // return (event: React.MouseEvent) => {
     //  dispatch(addNum(number));  
      // }

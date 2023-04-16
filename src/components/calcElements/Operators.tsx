@@ -4,7 +4,7 @@ import './Operators.scss'
 import { ComputeButton } from '../../logic/ComputeButton';
 const operators = ['*','/','+','-']
      
-const clickHandle = (e : React.MouseEvent<Element, MouseEvent>) => {
+const clickHandle = (e : any) => {
     // return (event: React.MouseEvent) => {
        
      // }

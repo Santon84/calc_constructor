@@ -9,7 +9,11 @@ export const currentNumStore = createSlice({
   initialState,
   reducers: {
     addNum: (state, action) => {
+      console.log(action.payload)
       //return  state.value === '0' ? action.payload : state.value += action.payload
+      if (action.payload === ',' && state.value.includes(',')) {
+      return state.value;
+      }
       if (state.value === '0') {state.value = ''}
       if (state.value.length === 9) return state.value;
       state.value += action.payload

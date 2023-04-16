@@ -10,7 +10,7 @@ import { ComputeButton } from '../../logic/ComputeButton';
 const ClearButton = () => {
   const dispatch = useDispatch();
 
-  const clickHandle = (e: React.MouseEvent<Element, MouseEvent>) => {
+  const clickHandle = (e: any) => {
     // return (event: React.MouseEvent) => {
     //  dispatch(addNum(number));  
      // }
@@ -19,7 +19,7 @@ const ClearButton = () => {
   }
   return (
     <div className='calc__clear'>
-           <CalcButton value={'AC'} addClass='calc__clear_color' clickHandler={clickHandle} />
+           <CalcButton value={'AC'} addClass='calc__clear_color' clickHandler={() => clickHandle} />
    </div>
   )
 }
