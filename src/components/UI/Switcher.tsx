@@ -4,6 +4,8 @@ import SwitcherButton from './SwitcherButton'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../store/store'
 import { setRuntime } from '../../store/runtimeStore'
+import eye from '../../assets/eye.svg'
+import bracket from '../../assets/selector.svg'
 const Switcher = () => {
     const  active  = useSelector((state:RootState) => state.runtimeSwitch);
     const dispatch = useDispatch();
@@ -16,8 +18,8 @@ function handleClick() {
   return (
     <div className='switcher-conteiner'>
         <div className='switcher'>
-            <SwitcherButton img={'img'} title={'Runtime'} active={active} handleClick={handleClick}></SwitcherButton>
-            <SwitcherButton img={'img'} title={'Constructor'} active={!active} handleClick={handleClick}></SwitcherButton>
+            <SwitcherButton img={eye} title={'Runtime'} active={active} handleClick={handleClick}></SwitcherButton>
+            <SwitcherButton img={bracket} title={'Constructor'} active={!active} handleClick={handleClick}></SwitcherButton>
         </div>
     </div>
   )

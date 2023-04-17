@@ -1,9 +1,8 @@
 
 import CalcButton from '../UI/CalcButton'
 import { useDispatch } from 'react-redux';
-import { addNum } from '../../store/currentNumStore';
+import { addNum } from '../../store/CalculateStore';
 import './Numbers.scss';
-import { ComputeButton } from '../../logic/ComputeButton';
 const numbers = ['7','8','9','4','5','6','1','2','3','0',','];
 
 
@@ -16,7 +15,6 @@ const Numbers = () => {
       dispatch(addNum(item));  
      // }
      console.log('number clicked');
-     //ComputeButton(e);
   }
   return (
     <div className='calc__numbers'>

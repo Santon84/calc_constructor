@@ -2,17 +2,16 @@ import React from 'react'
 import CalcButton from '../UI/CalcButton'
 import { useDispatch } from 'react-redux';
 import './EqualButton.scss';
-import { ComputeButton } from '../../logic/ComputeButton';
+import { doCalculation } from '../../store/CalculateStore';
 
 
 
 const EqualButton = () => {
-
+  const dispatch = useDispatch();
   const clickHandle = (e: any) => {
     // return (event: React.MouseEvent) => {
-    //  dispatch(addNum(number));  
+    dispatch(doCalculation(null));  
      // }
-     ComputeButton(e);
      
   }
   return (

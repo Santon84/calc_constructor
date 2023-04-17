@@ -16,7 +16,11 @@ const SwitcherButton:React.FC<SwitcherButtonProps> = ({img, title, active, handl
   
     return (
     <>
-      <button className={activeClass} onClick={handleClick}>{title}</button>
+      <button className={activeClass} onClick={handleClick}>
+        <img src={img} alt=''></img>
+        {title}
+      
+      </button>
      
     </>
   )

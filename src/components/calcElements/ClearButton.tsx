@@ -1,25 +1,23 @@
 import React from 'react'
 import CalcButton from '../UI/CalcButton'
 import { useDispatch } from 'react-redux';
-import { addNum } from '../../store/currentNumStore';
+import { ClearAll } from '../../store/CalculateStore';
 import './ClearButton.scss';
-import { ComputeButton } from '../../logic/ComputeButton';
 
 
 
 const ClearButton = () => {
   const dispatch = useDispatch();
 
-  const clickHandle = (e: any) => {
+  const clickHandle = () => {
     // return (event: React.MouseEvent) => {
-    //  dispatch(addNum(number));  
-     // }
-     ComputeButton(e);
-     //console.log(number);
+    console.log('clear clicked');
+    dispatch(ClearAll(null));  
+
   }
   return (
     <div className='calc__clear'>
-           <CalcButton value={'AC'} addClass='calc__clear_color' clickHandler={() => clickHandle} />
+           <CalcButton value={'AC'} addClass='calc__clear_color' clickHandler={clickHandle} />
    </div>
   )
 }
