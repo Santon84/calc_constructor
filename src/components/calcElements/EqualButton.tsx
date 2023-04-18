@@ -8,21 +8,20 @@ import { doCalculation } from '../../store/CalculateStore';
 
 const EqualButton = () => {
   const dispatch = useDispatch();
-  const clickHandle = (e: any) => {
-    // return (event: React.MouseEvent) => {
-    dispatch(doCalculation(null));  
-     // }
+  
+  const clickHandle = () => {
+
+    dispatch(doCalculation({}));  
      
   }
   return (
     <div className='calc__equal'>
           
-        
-        
-           <CalcButton value={'='} addClass='calc__equal_color' clickHandler={clickHandle} />
+           <CalcButton value={'='} 
+           addClass='calc__equal_color' 
+           clickHandler={clickHandle} 
+           />
        
-        
-    
    </div>
   )
 }

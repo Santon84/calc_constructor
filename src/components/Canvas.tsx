@@ -1,7 +1,7 @@
 import './Canvas.scss'
-import React, { useState } from 'react'
+import React from 'react'
 import Empty from './Empty'
-import { LibraryComponents, LibraryItem } from '../types/types'
+import { LibraryItem } from '../types/types'
 import BoardItem from './BoardItem'
 import { Dispatch, SetStateAction } from "react";
 import { useSelector, useDispatch } from 'react-redux';
