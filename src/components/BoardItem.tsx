@@ -1,4 +1,4 @@
-import React, {useState, SetStateAction, ReactElement} from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store/store';
 import { setCurrentItem } from '../store/ItemStore';
@@ -12,6 +12,7 @@ interface BoardItemProps {
     item : LibraryItem;
     children?: React.ReactElement;
     className?: string;
+    
 } 
 
 
@@ -19,50 +20,54 @@ const BoardItem: React.FC<BoardItemProps> = ({item, children, className}) => {
     const currentItem = useSelector((state:RootState) => state.currentItem);
     const active  = useSelector((state:RootState) => state.runtimeSwitch);
     const dispatch = useDispatch();
-    // const [currentItem, setCurrentItem] = useState<HTMLDivElement>();
    
     function dragStartHandler(e: React.DragEvent<HTMLDivElement>) {
         if (active) e.preventDefault();
         dispatch(setCurrentItem(item));
-        //el.style.cursor = 'move';
-        
-        
     }
+
+
     function dragEndHandler(e: React.DragEvent<HTMLDivElement>) {
         const el = (e.target as HTMLDivElement);
         
-        if (el.className.includes('board__item')) {
-            
-            el.style.borderBottom = 'none';
-        }
+        el.style.borderBottom = 'none';
+        
+        // if (el.className.includes('board__item')) {
+        // }
         console.log('END')
     }
     function dragOverHandler(e: React.DragEvent<HTMLDivElement>) {
         e.preventDefault();
         const el = (e.target as HTMLDivElement);
+        const parent = el.parentNode as HTMLDivElement;
         
-        if (el.className.includes('board__item')) {
-            el.style.borderBottom = '1px solid blue';
+        console.log(el.parentElement?.className);
+        if (parent?.className.includes('board__item_placed')) {
+            parent.style.borderBottom = '1px solid blue';
         }
         console.log("OVER")
     }
     function dragLeaveHandler(e: React.DragEvent<HTMLDivElement>) {
         const el = (e.target as HTMLDivElement);
-        if (el.className.includes('board__item')) {
+        const parent = el.parentNode as HTMLDivElement;
+        parent.style.borderBottom = 'none';
+        // if (el.className.includes('board__item')) {
             
-            el.style.borderBottom = 'none';
-        }
+        // }
         console.log('LEAVE')
     }
     function dropHandler(e: React.DragEvent<HTMLDivElement>) {
         e.preventDefault();
         const el = (e.target as HTMLDivElement);
-        if (el.className.includes('board__item')) {
-            el.style.borderBottom = 'none';
-        }
-        console.log('drop')
-        console.log(el.className)
-        if (el.className.includes('board__item_placed') && item.id !== currentItem.id) {
+        const parent = el.parentNode as HTMLDivElement;
+        
+        //console.log(el.parentElement?.className);
+        
+        parent.style.borderBottom = 'none';
+        // if (el.className.includes('board__item')) {
+        // }
+        
+        if (parent?.className.includes('board__item_placed') && item.id !== currentItem.id) {
             dispatch(sortComponentList({item, currentItem}));
         }
 

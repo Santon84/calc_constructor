@@ -91,13 +91,6 @@ const Board: React.FC<BoardProps> = ({ items, id, setList})=> {
     onDrop = {(e) => dropHandler(e)}
     onClick = {(e) => clickHandle(e)}
     >
-        
-      {/* {items?.sort((a,b) => a.order - b.order).map(item => {
-        return (
-                // <BoardItem setList={setList} key={item.id} item={item}/>
-        )
-
-      })} */}
     </div>
   )
 }

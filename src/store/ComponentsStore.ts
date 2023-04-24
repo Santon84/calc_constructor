@@ -1,7 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { LibraryItem } from "../types/types";
-
-const initialState:LibraryItem[] = []
+import { LibraryComponents } from "../types/types";
+const initialState:LibraryItem[] = [
+    {id: 1,  component: LibraryComponents.Display, order: 1},
+    {id: 2,  component: LibraryComponents.Operators, order: 2},
+    {id: 3,  component: LibraryComponents.Numbers, order: 3},
+    {id: 4,  component: LibraryComponents.EqualButton, order: 4},
+    {id: 5,  component: LibraryComponents.ClearButton, order: 5},
+]
 export const componentsStore = createSlice ({
     name: 'componentList',
     initialState,
@@ -20,19 +26,20 @@ export const componentsStore = createSlice ({
             return state.filter(item => item.id!== action.payload);
            },
         sortComponentList : (state, action) => {
-            console.log(action.payload);
             const {item, currentItem} = action.payload;
 
             const startIndex = state.findIndex(elem => elem.id === item.id);
             const endIndex = state.findIndex(elem => elem.id === currentItem.id);
-            if (item.id === 1 || currentItem.id === 1) {
+            console.log(startIndex, endIndex);
+            if (item.id === 1 || currentItem.id === 1 || startIndex === endIndex) {
                 return state
             }
             
             if (startIndex !== endIndex) {
                 state.splice(endIndex, 1);
-                console.log(startIndex)
-                state.splice(startIndex, 0, currentItem);
+                console.log([...state]);
+                state.splice(startIndex > endIndex ? startIndex : startIndex+1, 0, currentItem);
+                console.log();
             }
             return state;
         

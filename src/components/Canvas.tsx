@@ -51,7 +51,6 @@ function dragLeaveHandler(e: React.DragEvent<HTMLDivElement>) {
 }
 function dropHandler(e: React.DragEvent<HTMLDivElement>) {
     e.preventDefault();
-   // if (id === '1') return;
     const board = (e.target as HTMLDivElement);
     if (board.className === 'board'){
         console.log(currentItem)
@@ -68,7 +67,6 @@ function dropHandler(e: React.DragEvent<HTMLDivElement>) {
   function clickHandle(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
         
     const el = (e.target as HTMLDivElement);
-    //console.log(el);
       
     if (e.detail === 2 && el.className.includes('board__item')) {
       
@@ -86,6 +84,7 @@ function dropHandler(e: React.DragEvent<HTMLDivElement>) {
     onDragLeave = {(e) => dragLeaveHandler(e)}
     onDrop = {(e) => dropHandler(e)}
     onClick = {(e) => clickHandle(e)}
+    
     >
        
       {sortedComponents?.length ? (sortedComponents?.map(item => {

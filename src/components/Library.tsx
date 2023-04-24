@@ -22,12 +22,15 @@ interface LibraryProps {
 
 const Library:React.FC<LibraryProps> = ({setList}) => {
   const  active  = useSelector((state:RootState) => state.runtimeSwitch);
+  const componets = useSelector((state:RootState) => state.componentList);
   return (
     <div className='board' key='231311'>
       {active ?  null :
       renderData.map(item => {
-        return (
-            <BoardItem className='board__item_initial' key={item.id} item={item} >
+        return ( 
+          
+             
+            <BoardItem className={`board__item_initial ${componets.find(component => component.id === item.id) ? 'disabled' : ''}`} key={item.id} item={item} >
                  {SwitchComponent(item.component)}
             </BoardItem>
             )
