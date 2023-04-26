@@ -19,7 +19,16 @@ export const CalculateStore: Slice<any>  = createSlice({
         action.payload = '.';
         if (state.value.includes('.')) {return}
       }
-      if (state.value === '0') {state.value = ''}
+      if (state.value === '0') {
+        if (action.payload === '0') return;
+        if (action.payload === '.') {
+          state.value += action.payload;
+          return;
+        }
+        state.value = '';
+      }
+      
+      
       if (state.value.length === 9) return state.value;
       if (state.isEqual) {
         state.isEqual = false;
