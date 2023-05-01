@@ -7,7 +7,7 @@ import { Dispatch, SetStateAction } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store/store';
 import SwitchComponent from './SwitchComponent'
-import { deleteComponentList, setComponentList } from '../store/componentsStore'
+import { deleteComponentList, setComponentList } from '../store/ComponentsStore'
 
 
 interface CanvasProps {

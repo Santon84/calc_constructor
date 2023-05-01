@@ -8,7 +8,7 @@ const initialState:LibraryItem[] = [
     {id: 4,  component: LibraryComponents.EqualButton, order: 4},
     {id: 5,  component: LibraryComponents.ClearButton, order: 5},
 ]
-export const componentsStore = createSlice ({
+export const ComponentsStore = createSlice ({
     name: 'componentList',
     initialState,
     reducers: {
@@ -48,5 +48,5 @@ export const componentsStore = createSlice ({
 
 })
 
-export const { setComponentList, deleteComponentList, sortComponentList } = componentsStore.actions; 
-export default componentsStore.reducer;
+export const { setComponentList, deleteComponentList, sortComponentList } = ComponentsStore.actions; 
+export default ComponentsStore.reducer;

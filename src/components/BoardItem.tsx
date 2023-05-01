@@ -4,7 +4,7 @@ import { RootState } from '../store/store';
 import { setCurrentItem } from '../store/ItemStore';
 import './BoardItem.scss'
 import { LibraryItem } from '../types/types';
-import { sortComponentList } from '../store/componentsStore';
+import { sortComponentList } from '../store/ComponentsStore';
 
 
 
