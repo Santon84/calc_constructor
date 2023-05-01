@@ -1,9 +1,7 @@
 import React, {SetStateAction } from 'react'
 import './Board.scss'
-import BoardItem from './BoardItem'
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { setCurrentItem } from '../store/ItemStore';
 
 export interface Item {
     id: number,
