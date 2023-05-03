@@ -33,9 +33,11 @@ const Canvas:React.FC<CanvasProps> = ({ mylist, setList}) => {
   function dragEnterHandler(e: React.DragEvent<HTMLDivElement>) {
     e.preventDefault();
     const board = (e.target as HTMLDivElement);
-    if (board.className === 'board'){
+    console.log('ENTER');
+    console.log(board.className);
+    if (board.className.includes('canvas__empty')){
         console.log(board.id)
-        board.style.backgroundColor = 'lightgray'
+        board.style.backgroundColor = '#c5e3ed'
         console.log(currentItem)
     }
     
@@ -43,7 +45,7 @@ const Canvas:React.FC<CanvasProps> = ({ mylist, setList}) => {
 function dragLeaveHandler(e: React.DragEvent<HTMLDivElement>) {
     e.preventDefault();
     const board = (e.target as HTMLDivElement);
-    if (board.className === 'board'){
+    if (board.className.includes('canvas__empty')){
         console.log(board.id)
         board.style.backgroundColor = 'white'
     }
@@ -52,7 +54,7 @@ function dragLeaveHandler(e: React.DragEvent<HTMLDivElement>) {
 function dropHandler(e: React.DragEvent<HTMLDivElement>) {
     e.preventDefault();
     const board = (e.target as HTMLDivElement);
-    if (board.className === 'board'){
+    if (board.className.includes('canvas__empty')){
         console.log(currentItem)
         board.style.backgroundColor = 'white'
     }
@@ -66,11 +68,12 @@ function dropHandler(e: React.DragEvent<HTMLDivElement>) {
 
   function clickHandle(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
         
-    const el = (e.target as HTMLDivElement);
+    const el = (e.target as HTMLElement);
+    console.log(el.parentElement?.className.includes('board__item_placed'));  
+
+    if (e.detail === 2 && (el.className.includes('board__item_placed') || el.parentElement?.className.includes('board__item_placed'))) {
       
-    if (e.detail === 2 && el.className.includes('board__item')) {
-      
-      dispatch(deleteComponentList(parseInt(el.id)))
+      dispatch(deleteComponentList(parseInt(el.id ? el.id : el.parentElement?.id || '')))
       
     } 
         

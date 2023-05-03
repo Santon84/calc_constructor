@@ -2,11 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { LibraryItem } from "../types/types";
 import { LibraryComponents } from "../types/types";
 const initialState:LibraryItem[] = [
-    {id: 1,  component: LibraryComponents.Display, order: 1},
-    {id: 2,  component: LibraryComponents.Operators, order: 2},
-    {id: 3,  component: LibraryComponents.Numbers, order: 3},
-    {id: 4,  component: LibraryComponents.EqualButton, order: 4},
-    {id: 5,  component: LibraryComponents.ClearButton, order: 5},
+   
 ]
 export const ComponentsStore = createSlice ({
     name: 'componentList',

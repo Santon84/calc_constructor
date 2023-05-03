@@ -1,8 +1,11 @@
 import React from 'react'
 import './Empty.scss'
 const Empty = () => {
+
+
   return (
-    <div className='empty'>
+    <div className='empty' 
+    >
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M18.7778 1V5.44444" stroke="black" strokeWidth="2" strokeLinecap="round"/>
         <path d="M21 3.22222L16.5556 3.22222" stroke="black" strokeWidth="2" strokeLinecap="round"/>

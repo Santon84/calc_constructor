@@ -1,11 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+
+
 import { RootState } from '../store/store';
 import { setCurrentItem } from '../store/ItemStore';
-import './BoardItem.scss'
 import { LibraryItem } from '../types/types';
-import { sortComponentList } from '../store/ComponentsStore';
+import { sortComponentList, setComponentList } from '../store/ComponentsStore';
 
+import './BoardItem.scss'
 
 
 interface BoardItemProps {
@@ -31,9 +33,7 @@ const BoardItem: React.FC<BoardItemProps> = ({item, children, className}) => {
         const el = (e.target as HTMLDivElement);
         
         el.style.borderBottom = 'none';
-        
-        // if (el.className.includes('board__item')) {
-        // }
+      
         console.log('END')
     }
     function dragOverHandler(e: React.DragEvent<HTMLDivElement>) {
@@ -41,34 +41,30 @@ const BoardItem: React.FC<BoardItemProps> = ({item, children, className}) => {
         const el = (e.target as HTMLDivElement);
         const parent = el.parentNode as HTMLDivElement;
         
-        console.log(el.parentElement?.className);
+        
         if (parent?.className.includes('board__item_placed')) {
             parent.style.borderBottom = '1px solid blue';
         }
-        console.log("OVER")
+        
     }
     function dragLeaveHandler(e: React.DragEvent<HTMLDivElement>) {
         const el = (e.target as HTMLDivElement);
         const parent = el.parentNode as HTMLDivElement;
         parent.style.borderBottom = 'none';
-        // if (el.className.includes('board__item')) {
-            
-        // }
-        console.log('LEAVE')
+
     }
+
+
     function dropHandler(e: React.DragEvent<HTMLDivElement>) {
         e.preventDefault();
         const el = (e.target as HTMLDivElement);
         const parent = el.parentNode as HTMLDivElement;
-        
-        //console.log(el.parentElement?.className);
-        
         parent.style.borderBottom = 'none';
-        // if (el.className.includes('board__item')) {
-        // }
-        
+       
         if (parent?.className.includes('board__item_placed') && item.id !== currentItem.id) {
+            dispatch(setComponentList(currentItem))
             dispatch(sortComponentList({item, currentItem}));
+            
         }
 
     }
